@@ -1,0 +1,34 @@
+generation: 0
+timestamp: '2026-03-06T04:57:06+08:00'
+environment:
+  robot: Panda
+  task: Lift
+  horizon: 200
+  reward_shaping: false
+  has_renderer: false
+  has_offscreen_renderer: false
+  use_camera_obs: false
+  control_freq: 20
+training:
+  algorithm: PPO
+  total_timesteps: 500000
+  learning_rate: 0.0003
+  batch_size: 2048
+  n_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  n_envs: 4
+  seed: 42
+evolution:
+  max_generations: 100
+  candidates_per_generation: 4
+  elite_count: 2
+  convergence_patience: 10
+reward_code_hash: b65a925930e3f813
+metrics:
+  success_rate: 0.0
+  stability: 0.0
+  efficiency: 0.0
+  smoothness: 0.9975
+  composite_score: 0.1496

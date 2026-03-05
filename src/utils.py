@@ -91,22 +91,36 @@ def safe_exec_reward(code: str) -> callable:
     """
     import numpy as np
     import math
+    import re
 
-    # Restricted namespace
+    # Strip import lines — we already provide np/math in the namespace
+    lines = code.split("\n")
+    cleaned_lines = []
+    for line in lines:
+        stripped = line.strip()
+        if re.match(r"^(import |from \S+ import )", stripped):
+            continue  # Skip import statements
+        cleaned_lines.append(line)
+    code = "\n".join(cleaned_lines)
+
+    # Restricted namespace — allow basic builtins needed for Python to work
+    safe_builtins = {
+        "abs": abs, "min": min, "max": max, "sum": sum,
+        "len": len, "range": range, "enumerate": enumerate,
+        "zip": zip, "map": map, "filter": filter,
+        "float": float, "int": int, "bool": bool,
+        "str": str, "list": list, "dict": dict, "tuple": tuple,
+        "True": True, "False": False, "None": None,
+        "print": print,
+        "isinstance": isinstance,
+        "round": round,
+    }
+
     namespace = {
         "np": np,
         "numpy": np,
         "math": math,
-        "abs": abs,
-        "min": min,
-        "max": max,
-        "sum": sum,
-        "len": len,
-        "range": range,
-        "float": float,
-        "int": int,
-        "bool": bool,
-        "__builtins__": {},  # Restrict builtins
+        "__builtins__": safe_builtins,
     }
 
     try:

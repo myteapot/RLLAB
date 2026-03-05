@@ -177,9 +177,10 @@ class RewardEvolver:
                 )
                 break
 
+            best_ever_str = f"{self.best_ever['score']:.4f}" if self.best_ever else "N/A"
             logger.info(
                 f"Gen {gen} complete | Best this gen: {best_in_gen['score']:.4f} | "
-                f"Best ever: {self.best_ever['score']:.4f if self.best_ever else 'N/A'} | "
+                f"Best ever: {best_ever_str} | "
                 f"Patience: {gens_without_improvement}/{patience}"
             )
 

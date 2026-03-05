@@ -1,0 +1,21 @@
+last_updated: '2026-03-06T04:57:07+08:00'
+global_best:
+  task: lift
+  generation: 0
+  score: 0.1496
+  checkpoint: checkpoints/task_lift/best.zip
+tasks:
+  lift:
+    best_score: 0.1496
+    best_generation: 0
+    total_generations: 1
+    improvement_history:
+    - gen: 0
+      score: 0.1496
+      delta: '+0.1496'
+      timestamp: '2026-03-06T04:57:06+08:00'
+    top_k_checkpoints:
+    - gen: 0
+      score: 0.1496
+      path: checkpoints/task_lift/history/ckpt_gen0000_score0.150.zip
+      timestamp: '2026-03-06T04:57:06+08:00'
