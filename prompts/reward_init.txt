@@ -1,0 +1,30 @@
+You are designing a reward function for a robotic grasping task in MuJoCo simulation.
+
+## Environment
+{ENV_DESCRIPTION}
+
+## Requirements
+1. Write a Python function: `def reward_fn(obs, action, info) -> float`
+2. You may use `np` (numpy) and `math` — they are pre-imported.
+3. The reward should guide the robot through these stages:
+   - **Reach**: Move gripper toward the object (reduce distance)
+   - **Align**: Position gripper precisely above/around the object
+   - **Grasp**: Close gripper when close enough
+   - **Lift**: Raise the object upward
+4. Include a penalty for large/jerky actions to encourage smooth motion.
+5. Avoid reward hacking — the robot should actually grasp, not just hover.
+6. Return values roughly in range [-1, 10] per step.
+
+## History
+- Best reward score so far: {BEST_SCORE}
+- Best reward code:
+```python
+{BEST_REWARD_CODE}
+```
+- Previous reward attempts:
+{PREVIOUS_REWARDS}
+
+## Failure analysis from previous attempts:
+{FAILURE_ANALYSIS}
+
+Output ONLY the Python function in a ```python block. No explanations.

@@ -1,0 +1,24 @@
+You are analyzing the training results for generation {GENERATION} of a reward evolution experiment.
+
+## This Generation's Results
+{RESULTS}
+
+## Best Ever Result
+{BEST_EVER}
+
+## Failure Cases
+{FAILURE_CASES}
+
+## Your Task
+Provide a structured analysis in JSON format:
+
+```json
+{
+  "summary": "One paragraph summarizing this generation's performance",
+  "key_findings": ["finding 1", "finding 2", ...],
+  "improvement_direction": "What the next generation should focus on",
+  "failure_patterns": ["pattern 1", "pattern 2", ...]
+}
+```
+
+Focus on actionable insights that can improve the next reward function.

@@ -1,0 +1,26 @@
+You are improving an existing reward function for a robotic grasping task.
+
+## Current Reward Function
+```python
+{CURRENT_CODE}
+```
+
+## Current Performance
+- Composite score: {CURRENT_SCORE}
+- Detailed metrics:
+{METRICS}
+
+## Failure Analysis
+{FAILURE_ANALYSIS}
+
+## Your Task
+Improve this reward function to increase the composite score. Focus on:
+1. If success_rate is low: improve the reaching and grasping guidance
+2. If stability is low: reward sustained grasping more
+3. If efficiency is low: add time pressure or step penalties
+4. If smoothness is low: increase action smoothness penalty
+
+Make TARGETED improvements — don't rewrite from scratch.
+Keep using `np` and `math` only.
+
+Output ONLY the improved Python function `reward_fn(obs, action, info)` in a ```python block.
