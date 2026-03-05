@@ -98,13 +98,13 @@ class RewardEvolver:
 
         # Resume from previous state if available
         existing_best = self.checkpoint.get_best(self.task_name)
-        if existing_best and existing_best["best_generation"] >= 0:
-            self.generation = existing_best["total_generations"]
+        if existing_best and existing_best.get("generation", -1) >= 0:
+            self.generation = existing_best.get("total_generations", 0)
             best_code = self.checkpoint.get_best_reward_code(self.task_name)
             self.best_ever = {
                 "score": existing_best["score"],
                 "reward_code": best_code or "",
-                "gen": existing_best["best_generation"],
+                "gen": existing_best.get("generation", 0),
             }
             logger.info(
                 f"Resuming from generation {self.generation}, "
@@ -124,27 +124,81 @@ class RewardEvolver:
             gen = self.generation + gen_idx
             logger.info(f"\n--- Generation {gen} ---")
 
-            # 1. Generate candidate reward functions
-            candidates = self._generate_candidates(n_candidates, gen)
+            two_stage = evo_config.get("two_stage", False)
 
-            if not candidates:
-                logger.error("No valid candidates generated, retrying...")
-                continue
+            if two_stage:
+                # === TWO-STAGE TRAINING ===
+                screen_n = evo_config.get("screen_candidates", 12)
+                screen_steps = evo_config.get("screen_timesteps", 2000)
+                screen_top_k = evo_config.get("screen_top_k", 3)
 
-            # 2. Train and evaluate each candidate
-            gen_results = []
-            for i, code in enumerate(candidates):
-                logger.info(f"Candidate {i+1}/{len(candidates)}")
-                result = self._train_and_evaluate(
-                    code=code,
-                    gen=gen,
-                    candidate_idx=i,
-                    env_config=env_config,
-                    training_config=training_config,
-                    eval_config=eval_config,
+                # Stage 1: Generate many candidates, quick screen
+                logger.info(f"📊 Stage 1: Screening {screen_n} candidates ({screen_steps} steps each)")
+                candidates = self._generate_candidates(screen_n, gen)
+                if not candidates:
+                    logger.error("No valid candidates generated, retrying...")
+                    continue
+
+                screen_config = dict(training_config)
+                screen_config["total_timesteps"] = screen_steps
+
+                screen_results = []
+                for i, code in enumerate(candidates):
+                    logger.info(f"  ▶ Screen {i+1}/{len(candidates)}")
+                    result = self._train_and_evaluate(
+                        code=code, gen=gen, candidate_idx=i,
+                        env_config=env_config,
+                        training_config=screen_config,
+                        eval_config=eval_config,
+                    )
+                    if result:
+                        screen_results.append(result)
+                        logger.info(f"    score={result['score']:.4f}")
+
+                if not screen_results:
+                    logger.warning(f"Gen {gen}: No successful candidates in screening")
+                    continue
+
+                # Select top-K
+                screen_results.sort(key=lambda r: r["score"], reverse=True)
+                survivors = screen_results[:screen_top_k]
+                logger.info(
+                    f"🏅 Stage 1 done | Top-{screen_top_k}: "
+                    + ", ".join(f"{r['score']:.4f}" for r in survivors)
                 )
-                if result:
-                    gen_results.append(result)
+
+                # Stage 2: Full training on survivors
+                logger.info(f"🔥 Stage 2: Full training on {len(survivors)} survivors ({training_config['total_timesteps']} steps)")
+                gen_results = []
+                for i, survivor in enumerate(survivors):
+                    logger.info(f"  ▶ Full train {i+1}/{len(survivors)}")
+                    result = self._train_and_evaluate(
+                        code=survivor["code"], gen=gen, candidate_idx=survivor["candidate_idx"],
+                        env_config=env_config,
+                        training_config=training_config,
+                        eval_config=eval_config,
+                    )
+                    if result:
+                        gen_results.append(result)
+                        logger.info(f"    score={result['score']:.4f}")
+            else:
+                # === SINGLE-STAGE (original) ===
+                candidates = self._generate_candidates(n_candidates, gen)
+                if not candidates:
+                    logger.error("No valid candidates generated, retrying...")
+                    continue
+
+                gen_results = []
+                for i, code in enumerate(candidates):
+                    logger.info(f"  ▶ Candidate {i+1}/{len(candidates)}")
+                    result = self._train_and_evaluate(
+                        code=code, gen=gen, candidate_idx=i,
+                        env_config=env_config,
+                        training_config=training_config,
+                        eval_config=eval_config,
+                    )
+                    if result:
+                        gen_results.append(result)
 
             if not gen_results:
                 logger.warning(f"Gen {gen}: No successful candidates")

@@ -1,0 +1,6 @@
+06:16:15 [INFO] evolve-grasp: ============================================================
+06:16:15 [INFO] evolve-grasp:   🤖 Auto-Evolving Grasp System
+06:16:15 [INFO] evolve-grasp:   LLM-driven reward evolution for robotic grasping
+06:16:15 [INFO] evolve-grasp:   📋 Detailed logs → logs/evolution_20260306_061615.log
+06:16:15 [INFO] evolve-grasp: ============================================================
+06:16:15 [INFO] evolve-grasp: Config loaded from config.yaml

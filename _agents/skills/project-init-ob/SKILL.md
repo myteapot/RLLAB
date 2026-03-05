@@ -46,6 +46,10 @@ kanban-plugin: basic
 
 - [ ] 正在进行的任务 [[details/task-slug|📋]]
 
+## Review
+
+- [ ] 人类需要做的验证动作（如：跑 `python run.py` 确认终端干净）
+
 ## Done
 
 - [x] 已完成的任务 [[details/task-slug|📋]]
@@ -62,9 +66,16 @@ kanban-plugin: basic
 
 **规则**:
 
-- 列名用 `##` 标题，**固定三列**: `Backlog`, `In Progress`, `Done`
+- 列名用 `##` 标题，**固定四列**: `Backlog`, `In Progress`, `Review`, `Done`
 - 卡片用 `- [ ]`（待办）或 `- [x]`（完成）
 - 卡片后用 `[[details/slug|📋]]` 链接到详情文件
+
+**Review 列语义**:
+
+- Review 是**人类的 action queue**，不是任务本身
+- 多个 In Progress 完成后，可能只产生一条简单的 Review（如 "跑通验证"）
+- Agent 完成工作后，将人类需要做的最小验证动作放到 Review
+- 人类确认通过 → 移到 Done；有问题 → Agent 重新处理
 - 底部的 `kanban:settings` 块**不要删除**，这是插件识别标记
 - 人类和 Agent 均可直接编辑此文件
 

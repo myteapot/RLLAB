@@ -77,6 +77,7 @@ def train_policy(
         gamma=training_config.get("gamma", 0.99),
         gae_lambda=training_config.get("gae_lambda", 0.95),
         clip_range=training_config.get("clip_range", 0.2),
+        device=training_config.get("device", "auto"),
         verbose=0,
         seed=training_config.get("seed", 42),
     )
