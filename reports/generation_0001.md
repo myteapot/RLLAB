@@ -1,3 +1,21 @@
+# Generation 1 Report
+
+**Timestamp**: 2026-03-06T12:32:49+08:00
+
+## Results Summary
+
+| Candidate | Score | Success Rate | Stability | Efficiency | Smoothness |
+|-----------|-------|--------------|-----------|------------|------------|
+| 0 🏆 | 0.1498 | 0.00% | 0.000 | 0.000 | 0.998 |
+| 3 | 0.1498 | 0.00% | 0.000 | 0.000 | 0.999 |
+| 2 | 0.1489 | 0.00% | 0.000 | 0.000 | 0.993 |
+| 1 | 0.1422 | 0.00% | 0.000 | 0.000 | 0.948 |
+
+## Best Ever: score=0.1498 (gen 1)
+
+## Best Reward Code (this gen)
+
+```python
 def reward_fn(obs, action, info) -> float:
     # Safe getters
     gripper_pos = np.asarray(info.get("gripper_pos", np.zeros(3)), dtype=float)
@@ -112,3 +130,12 @@ def reward_fn(obs, action, info) -> float:
 
     r = float(np.clip(r, -1.0, 10.0))
     return r
+```
+
+## Failure Cases
+
+- Ep 0: Failed. Final distance=0.821, object_height=0.821, steps=200
+- Ep 1: Failed. Final distance=0.822, object_height=0.822, steps=200
+- Ep 2: Failed. Final distance=0.822, object_height=0.821, steps=200
+- Ep 3: Failed. Final distance=0.822, object_height=0.821, steps=200
+- Ep 4: Failed. Final distance=0.822, object_height=0.821, steps=200

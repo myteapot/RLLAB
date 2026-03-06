@@ -1,0 +1,265 @@
+12:18:40 [INFO] evolve-grasp: ============================================================
+12:18:40 [INFO] evolve-grasp:   🤖 Auto-Evolving Grasp System
+12:18:40 [INFO] evolve-grasp:   LLM-driven reward evolution for robotic grasping
+12:18:40 [INFO] evolve-grasp:   📋 Detailed logs → logs/evolution_20260306_121840.log
+12:18:40 [INFO] evolve-grasp: ============================================================
+12:18:40 [INFO] evolve-grasp: Config loaded from config.yaml
+12:18:40 [INFO] evolve-grasp: Resuming from generation 1, best score=0.1496
+12:18:40 [INFO] evolve-grasp: 
+============================================================
+12:18:40 [INFO] evolve-grasp:   Starting Reward Evolution
+12:18:40 [INFO] evolve-grasp:   Max generations: 1
+12:18:40 [INFO] evolve-grasp:   Candidates per generation: 4
+12:18:40 [INFO] evolve-grasp:   Training steps per candidate: 10000
+12:18:40 [INFO] evolve-grasp: ============================================================
+
+12:18:40 [INFO] evolve-grasp: 
+--- Generation 1 ---
+12:19:09 [INFO] evolve-grasp:   Candidate 1: generated OK (hash=be361ee1d6203cf4)
+12:19:39 [INFO] evolve-grasp:   Candidate 2: generated OK (hash=2db833faeac62d04)
+12:20:09 [INFO] evolve-grasp:   Candidate 3: generated OK (hash=c570feb1a2e37e7a)
+12:20:38 [INFO] evolve-grasp:   Candidate 4: generated OK (hash=9691e04ffbc86279)
+12:20:38 [INFO] evolve-grasp:   ▶ Candidate 1/4
+12:20:42 [INFO] evolve-grasp: Starting training: 10000 steps, 4 parallel envs
+12:22:01 [INFO] evolve-grasp: Training complete in 1.3 min | Episodes: 0 | Mean reward: 0.00 | Success rate: 0.00%
+12:22:02 [WARNING] robosuite_logs: No private macro file found!
+12:22:02 [WARNING] robosuite_logs: It is recommended to use a private macro file
+12:22:02 [WARNING] robosuite_logs: To setup, run: python /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py
+12:22:02 [WARNING] robosuite_logs: Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install.
+12:22:02 [WARNING] robosuite_logs: Could not load the mink-based whole-body IK. Make sure you install related import properly, otherwise you will not be able to use the default IK controller setting for GR1 robot.
+12:22:02 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:03 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:03 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:05 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:08 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:10 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:12 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:14 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:16 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:18 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:20 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:22 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:24 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:26 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:28 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:30 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:32 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:34 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:36 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:38 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:40 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:42 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:44 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:46 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:48 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:50 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:52 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:54 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:56 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:22:58 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:00 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:02 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:04 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:06 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:07 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:09 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:11 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:13 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:15 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:17 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:19 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:21 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:23 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:25 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:27 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:29 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:31 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:33 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:35 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:37 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:39 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:41 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:23:43 [INFO] evolve-grasp: Evaluation (50 episodes): success=0.00%, stability=0.000, efficiency=0.000, smoothness=0.998, composite=0.1498
+12:23:43 [INFO] evolve-grasp:   ▶ Candidate 2/4
+12:23:43 [INFO] evolve-grasp: Starting training: 10000 steps, 4 parallel envs
+12:24:58 [INFO] evolve-grasp: Training complete in 1.2 min | Episodes: 0 | Mean reward: 0.00 | Success rate: 0.00%
+12:24:59 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:24:59 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:00 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:02 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:04 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:06 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:08 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:11 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:13 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:15 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:17 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:19 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:21 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:23 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:25 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:27 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:29 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:31 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:33 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:35 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:37 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:39 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:41 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:43 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:45 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:47 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:49 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:51 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:54 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:56 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:25:58 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:00 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:02 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:04 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:06 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:08 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:10 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:12 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:14 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:16 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:18 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:20 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:22 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:24 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:26 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:28 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:30 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:32 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:34 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:36 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:38 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:40 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:26:42 [INFO] evolve-grasp: Evaluation (50 episodes): success=0.00%, stability=0.000, efficiency=0.000, smoothness=0.948, composite=0.1422
+12:26:42 [INFO] evolve-grasp:   ▶ Candidate 3/4
+12:26:42 [INFO] evolve-grasp: Starting training: 10000 steps, 4 parallel envs
+12:27:58 [INFO] evolve-grasp: Training complete in 1.3 min | Episodes: 0 | Mean reward: 0.00 | Success rate: 0.00%
+12:27:58 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:27:58 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:27:59 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:01 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:03 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:05 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:07 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:10 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:12 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:14 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:16 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:18 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:20 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:22 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:24 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:26 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:28 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:30 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:32 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:34 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:36 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:38 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:40 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:42 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:44 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:47 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:49 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:51 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:53 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:55 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:57 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:28:59 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:01 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:03 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:05 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:07 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:09 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:11 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:13 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:15 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:17 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:19 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:22 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:24 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:25 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:27 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:30 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:32 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:33 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:35 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:37 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:40 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:29:42 [INFO] evolve-grasp: Evaluation (50 episodes): success=0.00%, stability=0.000, efficiency=0.000, smoothness=0.993, composite=0.1489
+12:29:42 [INFO] evolve-grasp:   ▶ Candidate 4/4
+12:29:42 [INFO] evolve-grasp: Starting training: 10000 steps, 4 parallel envs
+12:30:55 [INFO] evolve-grasp: Training complete in 1.2 min | Episodes: 0 | Mean reward: 0.00 | Success rate: 0.00%
+12:30:56 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:30:56 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:30:56 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:30:58 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:00 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:03 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:05 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:07 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:09 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:11 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:13 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:15 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:17 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:19 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:21 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:23 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:25 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:27 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:29 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:31 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:33 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:35 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:37 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:39 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:41 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:43 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:45 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:47 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:50 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:52 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:54 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:56 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:31:58 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:00 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:02 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:04 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:06 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:08 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:10 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:12 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:14 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:16 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:18 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:20 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:22 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:24 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:26 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:28 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:30 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:32 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:34 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:36 [INFO] robosuite_logs: Loading controller configuration from: /home/rain/dev/rllab/.venv/lib/python3.10/site-packages/robosuite/controllers/config/robots/default_panda.json
+12:32:38 [INFO] evolve-grasp: Evaluation (50 episodes): success=0.00%, stability=0.000, efficiency=0.000, smoothness=0.999, composite=0.1498
+12:32:38 [INFO] evolve-grasp: 🏆 New best for 'lift': gen=1, score=0.1498 (Δ=+0.0002)
+12:32:49 [INFO] evolve-grasp: LLM Analysis: Generation 1 shows uniformly poor task performance across all candidates: success_rate, stability, and efficiency are all 0.0, while the only non-zero metric is smoothness (~0.95–0.999). Composite sco
+12:32:49 [INFO] evolve-grasp: Gen 1 complete | Best this gen: 0.1498 | Best ever: 0.1498 | Patience: 0/10
+12:32:49 [INFO] evolve-grasp: 
+============================================================
+12:32:49 [INFO] evolve-grasp:   Evolution Complete!
+12:32:49 [INFO] evolve-grasp:   Best score: 0.1498
+12:32:49 [INFO] evolve-grasp:   Best generation: 1
+12:32:49 [INFO] evolve-grasp: ============================================================
+12:32:49 [INFO] evolve-grasp: 
+✅ Done! Check the results:
+12:32:49 [INFO] evolve-grasp:   - Checkpoints: checkpoints/
+12:32:49 [INFO] evolve-grasp:   - Rewards:     rewards/
+12:32:49 [INFO] evolve-grasp:   - Reports:     reports/
+12:32:49 [INFO] evolve-grasp:   - Detailed log: logs/evolution_20260306_121840.log

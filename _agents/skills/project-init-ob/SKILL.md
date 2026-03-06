@@ -1,32 +1,42 @@
 ---
 name: project-init-ob
-description: 项目初始化 — 在项目根目录下创建 Obsidian 兼容的项目管理文件（Kanban 看板、详情卡片、Agent 通信日志）
+description: 项目初始化 — 在 Obsidian vault 内创建项目管理文件（Kanban 看板、详情卡片、Agent 通信日志）
 ---
 
 # 项目初始化（Obsidian 本地管理）
 
 ## 概述
 
-在项目根目录下创建一套本地项目管理文件，与 Obsidian 无缝集成。
-无需云端服务、无需 Notion、无需数据库——纯 Markdown，人类和 Agent 共同维护。
+在用户的 Obsidian vault 内创建项目管理文件，纯 Markdown，人类和 Agent 共同维护。
+文件位置由 `config.toml` 配置，Agent 读取配置后写入 vault 对应目录。
+
+## 配置
+
+读取同目录下的 `config.toml`，关键路径解析：
+
+```
+管理文件目录 = {vault.path} / {vault.projects_dir} / {project.name}
+示例:        D:/Cortex/Projects/RLLAB/
+```
+
+首次使用时，Agent 应确认 `config.toml` 中的 `vault.path` 是否正确。
 
 ## 何时触发
 
 - 新项目需要任务追踪时
 - 人类要求"创建 roadmap"或"初始化项目管理"时
-- 检测到项目无 `_agent/` 目录且需要协作时
+- 检测到项目无管理文件且需要协作时
 
 ## 初始化步骤
 
 ### 1. 创建目录结构
 
 ```
-{project_root}/
-├── _agent/
-│   ├── roadmap.md          ← Kanban 看板（Obsidian Kanban 插件兼容）
-│   ├── dialog.md           ← Agent 间跨 session 通信
-│   └── details/
-│       └── {card-slug}.md  ← 每张卡片的详情文件
+{vault.path}/{vault.projects_dir}/{project.name}/
+├── roadmap.md          ← Kanban 看板（Obsidian Kanban 插件兼容）
+├── dialog.md           ← Agent 间跨 session 通信
+└── details/
+    └── {card-slug}.md  ← 每张卡片的详情文件
 ```
 
 ### 2. 创建 `roadmap.md`（Kanban 看板）
@@ -155,3 +165,53 @@ kanban-plugin: basic
 - Session 结束前（被用户终止或任务完成时）
 - 发现需要跨 session 传递的信息时
 - 遇到阻塞问题、需要下次 session 处理时
+
+## 子动作：`update`（Agent 可主动触发）
+
+Agent 完成一组工作后，主动更新看板状态：
+
+### 步骤
+
+1. **移动完成项** — 将已完成的 In Progress 卡片移到 Done（或合并到已有 Done 条目）
+2. **添加 Review 项** — 将人类需要做的最小验证动作放到 Review 列，描述要具体（如 "跑 `python run.py` 确认无报错"）
+3. **更新 detail 文件** — 修改对应 `details/*.md` 的进展和状态
+4. **追加 dialog.md** — 记录本次 session 的工作摘要
+5. **提醒 git** — 提醒用户 commit（Agent 不自行 commit，因为用户可能还要改）：
+
+```
+📌 Roadmap 已更新，建议 commit：
+  git add _agent/ && git commit -m "update: {简述}"
+```
+
+### 触发时机
+
+- Session 结束前
+- 一组相关任务全部完成后
+- 用户要求 "更新 roadmap" 时
+
+---
+
+## 子动作：`clean`（仅人类触发）
+
+> ⚠️ **此动作只能由人类明确要求时执行**（如 "clean roadmap"、"整理看板"）。Agent 不得自行触发。
+
+### 步骤
+
+1. **安全快照** — 先执行 `git add _agent/ && git commit -m "pre-clean snapshot"`，确保清理前有回滚点
+2. **合并同类项** — 将相似的 Backlog 卡片合并到一条，保留所有事实细节到对应 detail 文件
+3. **归档已完成** — Done 列中过多的细粒度条目合并为按里程碑分组的总结条目
+4. **清理空 Review** — 如果 Review 列为空且无待审项，保留空列即可
+5. **清理孤立 detail** — 检查 `details/` 下是否有不再被 `roadmap.md` 引用的文件，列出供用户决定是否删除
+6. **通知用户** — 告知清理完成，提供回滚方式：
+
+```
+✅ Roadmap 已清理。清理前快照已 commit。
+  查看变更：git diff HEAD~1
+  回滚：    git checkout HEAD~1 -- _agent/
+```
+
+### 规则
+
+- **不丢失信息** — 合并条目时，细节写入 detail 文件或 wiki.md，不要静默丢弃
+- **不删除文件** — 只列出建议删除的孤立文件，由人类决定
+- **幂等** — 连续执行两次 clean 不应产生额外变更
