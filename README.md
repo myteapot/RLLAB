@@ -1,108 +1,71 @@
 # 🤖 Auto-Evolving Grasp
 
-LLM 驱动的持续进化机器人抓取系统 —— 利用无限 LLM 调用自动迭代奖励函数，训练最优抓取策略。
+LLM 驱动的机器人抓取奖励进化系统：自动生成/变异奖励函数，训练 PPO 策略，并把实验产物统一写入 `scratch/`。
 
-## 环境配置
+## 快速开始
 
 ### 前提条件
 
 - Python 3.10+
 - Git
-- (推荐) NVIDIA GPU + CUDA（训练更快，但 CPU 也能跑）
+- 建议在 WSL2 / Linux 上运行 `robosuite` + `mujoco`
 
-### 1. 创建虚拟环境
+### 安装依赖
 
 ```bash
-# 使用 conda
-conda create -n evolve-grasp python=3.10 -y
-conda activate evolve-grasp
-
-# 或使用 venv
 python -m venv .venv
-# Windows:
 .venv\Scripts\activate
-# Linux/Mac:
-source .venv/bin/activate
-```
-
-### 2. 安装依赖
-
-```bash
 pip install -r requirements.txt
 ```
 
-> **Windows 注意**：Robosuite 官方主要支持 macOS/Linux。如果在 Windows 上遇到问题：
-> - 方案 A：使用 WSL2（推荐）
-> - 方案 B：使用云环境训练
-> - 方案 C：尝试 `pip install robosuite`，部分 Windows 用户报告可以正常工作
+### 配置 LLM
 
-### 3. 配置 LLM API
-
-编辑 `config.yaml`，修改 `llm` 部分：
-
-```yaml
-llm:
-  base_url: "https://your-free-api-endpoint/v1"
-  api_key: "your-api-key"
-  model: "your-model-name"
-```
-
-或通过环境变量：
+默认配置文件是 `configs/default.yaml`。敏感信息不要写入仓库，请用环境变量：
 
 ```bash
 export OPENAI_API_KEY="your-key"
 export OPENAI_BASE_URL="https://your-endpoint/v1"
 ```
 
-### 4. 验证安装
+### 运行实验
 
 ```bash
-# 测试 MuJoCo + Robosuite
-python -c "import robosuite; print('Robosuite version:', robosuite.__version__)"
-
-# 测试环境可用
-python -c "from src.environment import create_env; env = create_env(); print('OK'); env.close()"
+python -m src.runtime.experiments.run_evolution
+python -m src.runtime.experiments.run_evolution --max-generations 1 --timesteps 10000
+python -m src.runtime.experiments.run_evolution --config configs/default.yaml --two-stage
 ```
 
-## 使用方法
-
-### 启动进化
+### 录制最佳策略
 
 ```bash
-# 默认配置运行
-python run.py
-
-# 快速测试（1 代，少量训练步数）
-python run.py --max-generations 1 --timesteps 10000
-
-# 自定义配置
-python run.py --config my_config.yaml
+python -m src.runtime.experiments.run_video_eval
+python -m src.runtime.experiments.run_video_eval --episodes 5
+python -m src.runtime.experiments.run_video_eval --live
 ```
 
-### 查看结果
+## 目录说明
 
-- `checkpoints/registry.yaml` — 最优权重索引
-- `rewards/gen_XXX/` — 每代的 reward 代码和结果
-- `reports/` — LLM 分析报告
-- `configs/snapshots/` — 每代配置快照
+- `spec/`：正式规则、路线图、Wiki、协作记录
+- `src/runtime/experiments/`：实验编排、训练、评估、checkpoint、CLI
+- `src/interfaces/`：LLM 与仿真环境边界
+- `src/domain/rewards/`：reward 代码抽取与安全执行
+- `src/shared/`：日志、配置、YAML 等共享支持
+- `scratch/`：运行产物与非正式实验区
+- `scratch/legacy/pre-ckp/`：CKP 重构前的历史产物备份
 
-## 项目结构
+## 当前默认产物路径
 
-```
-auto-evolving-grasp/
-├── config.yaml          # 主配置
-├── run.py               # 入口
-├── src/
-│   ├── llm_client.py    # LLM API 客户端
-│   ├── environment.py   # Robosuite 环境封装
-│   ├── trainer.py       # SB3 PPO 训练
-│   ├── evaluator.py     # 多维度评估
-│   ├── reward_evolver.py # 奖励进化主循环
-│   ├── checkpoint.py    # Checkpoint 管理
-│   └── utils.py         # 工具函数
-├── prompts/             # LLM Prompt 模板
-├── checkpoints/         # 权重存档
-├── rewards/             # 进化的 reward 代码
-├── configs/snapshots/   # 配置快照
-└── reports/             # LLM 分析报告
+- `scratch/checkpoints/`
+- `scratch/rewards/`
+- `scratch/reports/`
+- `scratch/config_snapshots/`
+- `scratch/logs/`
+
+## 验证安装
+
+```bash
+python -m src.runtime.experiments.run_evolution --help
+python -m src.runtime.experiments.run_video_eval --help
+python -c "from src.interfaces.simulation import create_env; print(create_env)"
+python -c "from src.domain.rewards import safe_exec_reward; safe_exec_reward('def reward_fn(obs, action, info): return 0.0')"
 ```
